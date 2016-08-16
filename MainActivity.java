@@ -3,6 +3,7 @@ package conecty.com.webapi;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,9 +33,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         Gson g = new GsonBuilder().registerTypeAdapter(Student.class, new StudentDec()).create();
 
+        RecyclerView.LayoutManager layout = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+
+        recyclerView.setLayoutManager(layout);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -142,17 +145,17 @@ public class MainActivity extends AppCompatActivity {
 
 
                 @Override
-                public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+                public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
 
 
-                    NossoViewHolder holder1 = (NossoViewHolder)  holder;
+                    NossoViewHolder holder = (NossoViewHolder)  viewHolder;
 
                     Student student = students.get(position);
 
-                    holder1.id.setText(student.getId());
-                    holder1.name.setText(student.getName());
-                    holder1.age.setText(student.getAge());
-                    holder1.email.setText(student.getEmail());
+                    holder.id.setText(student.getId());
+                    holder.name.setText(student.getName());
+                    holder.age.setText(student.getAge());
+                    holder.email.setText(student.getEmail());
 
 
                     //demais campos
