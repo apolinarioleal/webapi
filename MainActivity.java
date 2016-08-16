@@ -73,24 +73,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler);
 
 
 //                    List<Student> students =;  // recupera do banco de dados ou webservice
 
-        //    }
+
         private class NossoAdapter extends RecyclerView.Adapter {
 
 
-            private List<Student> students;
+       //    private List<Student> students;
 
             public NossoAdapter(List<Student> students) {
                 this.students = students;
             }
 
 
-            public class NossoAdapter extends RecyclerView.Adapter {
+       //     public class NossoAdapter extends RecyclerView.Adapter {
 
                 private List<Student> students;
                 private Context context;
@@ -116,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-                class NossoViewHolder extends RecyclerView.ViewHolder {
+              private  class NossoViewHolder extends RecyclerView.ViewHolder {
 
 
 //                  }
@@ -144,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
 
-                    NossoViewHolder holder1 = (NossoViewHolder) viewHolder;
+                    NossoViewHolder holder1 = (NossoViewHolder)  holder;
 
                     Student student = students.get(position);
 
@@ -159,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-            }
+
 
             @Override
             public int getItemCount() {
@@ -172,5 +173,4 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-}          }
-}
+
