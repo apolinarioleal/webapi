@@ -35,9 +35,15 @@ public class MainActivity extends AppCompatActivity {
 
         Gson g = new GsonBuilder().registerTypeAdapter(Student.class, new StudentDec()).create();
 
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler);
+
         RecyclerView.LayoutManager layout = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
         recyclerView.setLayoutManager(layout);
+
+
+
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -53,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
 
                     List<Student> users = response.body();
+
+
 
 
                     for (Student s : users) {
@@ -78,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler);
 
 
 //                    List<Student> students =;  // recupera do banco de dados ou webservice
